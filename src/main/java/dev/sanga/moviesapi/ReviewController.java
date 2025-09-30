@@ -10,17 +10,17 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-
 @RestController
 @RequestMapping("/api/v1/reviews")
 public class ReviewController {
     @Autowired
     private ReviewService reviewService;
-    
+
     @PostMapping
     public ResponseEntity<Review> createReviewEntity(@RequestBody Map<String, String> payload) {
-        
-        return new ResponseEntity<Review>(reviewService.createReview(payload.get("reviewBody"),payload.get("imdbId")), HttpStatus.CREATED);
+
+        return new ResponseEntity<Review>(reviewService.createReview(payload.get("reviewBody"), payload.get("imdbId")),
+                HttpStatus.CREATED);
     }
-    
+
 }
